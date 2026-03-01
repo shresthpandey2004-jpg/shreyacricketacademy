@@ -49,13 +49,7 @@
         }
 
         #cricket-ball-3d {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease-out;
-            font-size: 40px;
+            display: none; /* Hidden - was annoying */
         }
 
         nav {
@@ -440,11 +434,68 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5em; }
-            .hero-subtitle { font-size: 1.3em; }
-            .nav-menu { display: none; }
-            .features-grid { grid-template-columns: 1fr; }
-            .special-message { padding: 30px 20px; }
+            .hero-title { 
+                font-size: 2em; 
+                letter-spacing: 1px;
+            }
+            .hero-subtitle { 
+                font-size: 1.1em; 
+            }
+            .typed-text {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+            .nav-menu { 
+                display: none; 
+            }
+            .nav-container {
+                padding: 0 20px;
+            }
+            .logo {
+                font-size: 1.3em;
+            }
+            .features-grid { 
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .feature-card {
+                padding: 25px;
+            }
+            .feature-icon {
+                font-size: 2.5em;
+            }
+            .special-message { 
+                padding: 30px 20px;
+                margin: 40px 20px;
+            }
+            .special-message h2 {
+                font-size: 1.8em;
+            }
+            .special-message p {
+                font-size: 1em;
+            }
+            .section-header h2 {
+                font-size: 2em;
+            }
+            .game-card {
+                padding: 20px;
+            }
+            .game-card h3 {
+                font-size: 1.5em;
+            }
+            .click-card::after {
+                font-size: 0.75em;
+                padding: 3px 10px;
+            }
+            .emoji-large {
+                font-size: 2em;
+            }
+            iframe {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -1001,24 +1052,9 @@
             });
         });
 
-        // Cricket ball cursor follower
-        const cricketBall = document.getElementById('cricket-ball-3d');
-        let ballX = 0, ballY = 0;
-        let currentX = 0, currentY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            ballX = e.clientX;
-            ballY = e.clientY;
-        });
-
-        function animateBall() {
-            currentX += (ballX - currentX) * 0.1;
-            currentY += (ballY - currentY) * 0.1;
-            cricketBall.style.left = currentX + 'px';
-            cricketBall.style.top = currentY + 'px';
-            requestAnimationFrame(animateBall);
-        }
-        animateBall();
+        // Cricket ball cursor follower - DISABLED (was annoying)
+        // const cricketBall = document.getElementById('cricket-ball-3d');
+        // Removed for better UX
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
