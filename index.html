@@ -356,6 +356,89 @@
             50% { transform: translateY(-50px) scale(1.1); }
         }
 
+        /* Interactive Click Cards */
+        .click-card {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .click-card::after {
+            content: '👆 Click to explore!';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--golden-yellow);
+            color: var(--deep-space);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable-content.expanded {
+            max-height: 2000px;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,107,107,0.2));
+            border-left: 5px solid var(--golden-yellow);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            animation: slideInLeft 0.5s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .emoji-large {
+            font-size: 3em;
+            display: inline-block;
+            animation: rotate 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        .progress-indicator {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-indicator::after {
+            content: '';
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--electric-blue), var(--cricket-green));
+            width: 0%;
+            animation: fillProgress 2s ease forwards;
+        }
+
+        @keyframes fillProgress {
+            to { width: 100%; }
+        }
+
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5em; }
             .hero-subtitle { font-size: 1.3em; }
@@ -461,34 +544,80 @@
             <div class="section-header">
                 <h2>📚 Cricket Basics - Shuru Karte Hain!</h2>
                 <p style="font-size: 1.2em; color: rgba(255,255,255,0.8);">
-                    Sabse pehle basics strong karo!
+                    Sabse pehle basics strong karo! Click karke explore karo! 👇
                 </p>
+                <div class="progress-indicator"></div>
             </div>
 
-            <div class="game-card">
+            <div class="game-card click-card" onclick="toggleContent('cricket-intro')">
                 <h3 style="color: var(--electric-blue); font-size: 2em; margin-bottom: 15px;">
-                    🏏 Cricket Kya Hai?
+                    <span class="emoji-large">🏏</span> Cricket Kya Hai?
                 </h3>
                 <p style="font-size: 1.2em; line-height: 1.8; color: rgba(255,255,255,0.9);">
                     Cricket ek team sport hai jisme <strong>11-11 players</strong> hote hain. 
                     Ek team batting karti hai aur dusri bowling. Goal hai: <strong>Jitne zyada runs banao</strong> 
                     aur opponent ko kam runs par out karo!
-                    <br><br>
-                    <strong>Fun Fact:</strong> Cricket ka naam "cricket" insect se nahi aaya! 
-                    Ye Old French word "criquet" se aaya hai jiska matlab hai "stick" 🏏
                 </p>
+                <div id="cricket-intro" class="expandable-content">
+                    <div class="fun-fact" style="margin-top: 20px;">
+                        <h4 style="color: var(--golden-yellow); font-size: 1.5em; margin-bottom: 10px;">🎉 Fun Facts!</h4>
+                        <p style="font-size: 1.1em; line-height: 1.8;">
+                            ⚡ Cricket ka naam "cricket" insect se nahi aaya! Ye Old French word "criquet" se aaya hai jiska matlab hai "stick" 🏏
+                            <br><br>
+                            🌍 Cricket 2.5 billion+ log dekhte hain worldwide - India mein sabse popular!
+                            <br><br>
+                            🏆 Pehla international cricket match 1844 mein USA vs Canada ke beech khela gaya tha!
+                            <br><br>
+                            ⏱️ Sabse lamba Test match 14 days chala tha (1939 mein)!
+                        </p>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <iframe width="100%" height="315" style="border-radius: 15px; max-width: 560px;" 
+                                src="https://www.youtube.com/embed/g-beFHld19w" 
+                                title="Cricket Basics" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        <p style="margin-top: 10px; color: var(--cricket-green);">📺 Watch: Cricket Explained in 5 Minutes!</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="game-card">
+            <div class="game-card click-card" onclick="toggleContent('equipment')">
                 <h3 style="color: var(--cricket-green); font-size: 2em; margin-bottom: 15px;">
-                    🎯 Basic Equipment
+                    <span class="emoji-large">🎯</span> Basic Equipment - Click to See More!
                 </h3>
                 <div style="font-size: 1.2em; line-height: 2; color: rgba(255,255,255,0.9);">
                     <p><strong>🏏 Bat:</strong> Runs banane ke liye - willow wood se banta hai</p>
                     <p><strong>⚪ Ball:</strong> Red (Test), White (ODI/T20) - leather ka hota hai</p>
                     <p><strong>🎯 Stumps:</strong> 3 wickets jo defend karni hoti hain</p>
-                    <p><strong>🧤 Pads & Gloves:</strong> Safety ke liye - bahut important!</p>
-                    <p><strong>⛑️ Helmet:</strong> Head protection - fast bowling ke against</p>
+                </div>
+                <div id="equipment" class="expandable-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: rgba(0,217,255,0.1); padding: 20px; border-radius: 15px; text-align: center; border: 2px solid var(--electric-blue); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <div style="font-size: 3em;">🏏</div>
+                            <h4 style="color: var(--electric-blue); margin: 10px 0;">Cricket Bat</h4>
+                            <p style="font-size: 0.9em;">Weight: 1.1-1.4 kg<br>Length: 96.5 cm max<br>Material: Willow wood</p>
+                            <div class="fun-fact" style="margin-top: 10px; font-size: 0.85em;">
+                                💡 Sachin ka bat 1.47 kg ka tha!
+                            </div>
+                        </div>
+                        <div style="background: rgba(0,255,136,0.1); padding: 20px; border-radius: 15px; text-align: center; border: 2px solid var(--cricket-green); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <div style="font-size: 3em;">⚪</div>
+                            <h4 style="color: var(--cricket-green); margin: 10px 0;">Cricket Ball</h4>
+                            <p style="font-size: 0.9em;">Weight: 155-163 grams<br>Circumference: 22.4-22.9 cm<br>Material: Cork & Leather</p>
+                            <div class="fun-fact" style="margin-top: 10px; font-size: 0.85em;">
+                                💡 Ball 160 kmph+ speed tak ja sakti hai!
+                            </div>
+                        </div>
+                        <div style="background: rgba(176,38,255,0.1); padding: 20px; border-radius: 15px; text-align: center; border: 2px solid var(--neon-purple); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <div style="font-size: 3em;">🧤</div>
+                            <h4 style="color: var(--neon-purple); margin: 10px 0;">Protective Gear</h4>
+                            <p style="font-size: 0.9em;">Helmet, Pads, Gloves<br>Chest Guard, Thigh Guard<br>Safety First!</p>
+                            <div class="fun-fact" style="margin-top: 10px; font-size: 0.85em;">
+                                💡 Helmet compulsory hai fast bowling ke against!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1063,6 +1192,14 @@
 
         function restartQuiz() {
             loadQuiz();
+        }
+
+        // Toggle expandable content
+        function toggleContent(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.toggle('expanded');
+            }
         }
 
         console.log('🏏 Shreya\'s Cricket Academy Loaded! 🌟');
