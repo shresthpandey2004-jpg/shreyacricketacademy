@@ -434,67 +434,212 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            
             .hero-title { 
-                font-size: 2em; 
+                font-size: 2.8em; 
                 letter-spacing: 1px;
+                font-weight: 900;
+                line-height: 1.3;
+                text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
             }
+            
             .hero-subtitle { 
-                font-size: 1.1em; 
+                font-size: 1.6em;
+                font-weight: 700;
+                margin-bottom: 25px;
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
             }
+            
             .typed-text {
-                font-size: 1em;
+                font-size: 1.3em;
+                font-weight: 600;
+                min-height: 70px;
             }
+            
             .cta-button {
-                padding: 15px 30px;
-                font-size: 1em;
+                padding: 22px 45px;
+                font-size: 1.3em;
+                font-weight: 900;
+                margin-top: 25px;
+                border: 3px solid rgba(255, 255, 255, 0.3);
             }
+            
             .nav-menu { 
                 display: none; 
             }
+            
             .nav-container {
                 padding: 0 20px;
             }
+            
             .logo {
-                font-size: 1.3em;
+                font-size: 1.6em;
+                font-weight: 900;
             }
+            
             .features-grid { 
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
+                padding: 0 15px;
             }
+            
             .feature-card {
-                padding: 25px;
+                padding: 35px 25px;
+                margin: 0;
+                border: 3px solid rgba(255, 255, 255, 0.2);
             }
+            
+            .feature-card h3 {
+                font-size: 1.9em;
+                font-weight: 800;
+                margin-bottom: 15px;
+                text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+            }
+            
+            .feature-card p {
+                font-size: 1.2em;
+                line-height: 1.8;
+                font-weight: 500;
+            }
+            
             .feature-icon {
-                font-size: 2.5em;
+                font-size: 3.5em;
+                margin-bottom: 20px;
             }
+            
             .special-message { 
-                padding: 30px 20px;
-                margin: 40px 20px;
+                padding: 40px 30px;
+                margin: 60px 20px;
+                border: 3px solid rgba(255, 215, 0, 0.5);
             }
+            
+            .special-message::before {
+                font-size: 3.5em;
+                top: -30px;
+            }
+            
             .special-message h2 {
-                font-size: 1.8em;
+                font-size: 2.3em;
+                font-weight: 900;
+                margin-bottom: 25px;
+                text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
             }
+            
             .special-message p {
-                font-size: 1em;
+                font-size: 1.25em;
+                line-height: 1.9;
+                font-weight: 500;
             }
+            
             .section-header h2 {
-                font-size: 2em;
+                font-size: 2.5em;
+                font-weight: 900;
+                margin-bottom: 20px;
+                text-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
             }
+            
+            .section-header p {
+                font-size: 1.25em;
+                font-weight: 600;
+            }
+            
             .game-card {
-                padding: 20px;
+                padding: 30px 25px;
+                margin: 25px 15px;
+                border: 3px solid rgba(0, 217, 255, 0.4);
             }
+            
             .game-card h3 {
-                font-size: 1.5em;
+                font-size: 1.9em;
+                font-weight: 800;
+                margin-bottom: 18px;
+                text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
             }
+            
+            .game-card h4 {
+                font-size: 1.6em;
+                font-weight: 700;
+            }
+            
+            .game-card p, .game-card div {
+                font-size: 1.2em;
+                line-height: 2;
+                font-weight: 500;
+            }
+            
+            .game-card strong {
+                font-weight: 800;
+            }
+            
+            .click-card {
+                border: 3px solid rgba(255, 215, 0, 0.4);
+            }
+            
             .click-card::after {
-                font-size: 0.75em;
-                padding: 3px 10px;
+                font-size: 0.95em;
+                padding: 8px 16px;
+                font-weight: 800;
             }
+            
             .emoji-large {
-                font-size: 2em;
+                font-size: 3em;
             }
+            
+            .fun-fact {
+                padding: 25px 20px;
+                margin: 25px 0;
+                border-left: 6px solid var(--golden-yellow);
+            }
+            
+            .fun-fact h4 {
+                font-size: 1.6em;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+            
+            .fun-fact p {
+                font-size: 1.15em;
+                line-height: 1.9;
+                font-weight: 500;
+            }
+            
             iframe {
-                height: 200px;
+                height: 250px;
+                margin: 20px 0;
+                border: 3px solid rgba(0, 217, 255, 0.3);
+            }
+            
+            .expandable-content {
+                padding: 0 10px;
+            }
+            
+            /* Better touch targets */
+            button, .nav-item, .feature-card, .game-card {
+                min-height: 48px;
+            }
+            
+            /* Better spacing */
+            .features-section {
+                padding: 0 20px;
+                margin: 80px auto;
+            }
+            
+            .content-section {
+                padding: 100px 15px 50px;
+            }
+            
+            /* Make all text more visible */
+            p, div, span {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Thicker borders everywhere */
+            .feature-card:hover,
+            .game-card:hover {
+                border-width: 4px;
             }
         }
     </style>
